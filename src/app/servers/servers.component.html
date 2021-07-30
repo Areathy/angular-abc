@@ -13,11 +13,8 @@
     [disabled]="serverName === ''"
     (click)="onCreateServer()"
 >Create Server </button>
-<p *ngIf="serverCreated; else noServer">{{ "Abubakar" }} Server  is {{ serverName }}</p>
-<!-- <ng  -->
-<ng-template #noServer>
-    <p>No server was created.</p>
-</ng-template>
-<p *ngelse>No server</p>
 <!-- <p>{{ serverCreationStatus }}</p> -->
+
+<p *ngIf="serverCreated">{{ "Abubakar" }} Server  is {{ serverName }}</p>
+
 <app-server></app-server>
