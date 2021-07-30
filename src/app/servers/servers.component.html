@@ -11,9 +11,13 @@
 <button
     class="btn btn-primary"
     [disabled]="serverName === ''"
-    (click)="onReset()"
->Reset Server </button>
-<!-- <p [innerText]="allowNewServer"></p>
-<p>{{ allowNewServer }}</p> -->
-<p>{{ serverCreationStatus }}</p>
+    (click)="onCreateServer()"
+>Create Server </button>
+<p *ngIf="serverCreated; else noServer">{{ "Abubakar" }} Server  is {{ serverName }}</p>
+<!-- <ng  -->
+<ng-template #noServer>
+    <p>No server was created.</p>
+</ng-template>
+<p *ngelse>No server</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
 <app-server></app-server>
