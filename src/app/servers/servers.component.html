@@ -8,12 +8,23 @@
     [(ngModel)]="serverName"
 > 
 
-<button
+<!-- <button
     class="btn btn-primary"
     [disabled]="serverName === ''"
     (click)="onCreateServer()"
->Create Server </button>
+>Create Server </button> -->
 <!-- <p>{{ serverCreationStatus }}</p> -->
+
+<button class=" btn btn-primary m-3" (click)="showSecret = !showSecret">Toggle Password</button>
+<button class=" btn btn-primary" (click)="onSaveToggleDetails()">Display Logs</button>
+<p *ngIf="showSecret">Secret password is happiness</p>
+<div
+    *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 4 }"
+>
+    {{ logItem }}
+</div>
 
 <p *ngIf="serverCreated">{{ "Abubakar" }} Server  is {{ serverName }}</p>
 
